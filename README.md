@@ -1,11 +1,12 @@
 ### Purpose
 
-This NPM module will record all your routes.
+This NPM module will record all your routes and produces a HTML api documentation.
 
 
 ### Requirements
 
 To use this module you need tests. The recorder will record all requests and responses of your tests.
+The NPM only works with express.
 
 
 ### Usage
@@ -24,6 +25,6 @@ To use this module you need tests. The recorder will record all requests and res
 
 
 ### Example
-![alt tag](images/1.png)
-![alt tag](images/2.png)
-![alt tag](images/3.png)
+![alt tag](images/1.png=250x)
+![alt tag](images/2.png=250x)
+![alt tag](images/3.png=250x)
