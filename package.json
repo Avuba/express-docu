@@ -1,6 +1,9 @@
 {
   "name": "express-docu",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "author": "kirrg001",
+  "description": "record all your routes and generate HTML api documentation",
+  "homepage": "http://github.com/Avuba/express-docu",
   "dependencies": {
     "jade": "^1.11.0",
     "lodash": "^3.10.1",
