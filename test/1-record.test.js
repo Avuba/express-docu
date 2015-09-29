@@ -4,29 +4,16 @@ describe('record tests', function(tnv) {
 
   before(function(done) {
     scope.app = tnv.express();
-
     scope.app.use(tnv.bodyParser.json());
 
-    scope.app.use(function(req, res, next) {
-      res.once('finish', function() {
-        tnv.expressDocu.record({
-          req: req,
-          res: res
-        }, function(err) {
-          throw err;
-        });
-      });
-
-      next();
-    });
+    scope.app.use(tnv.expressDocu.record);
 
     scope.app.post('/route1', function(req, res) {
       res.status(400).json({ error: { name: 'ValidationError' } });
     });
 
-    // TODO: RESPONSE NOT AVAILABLE
     scope.app.get('/route1/:param', function(req, res) {
-      res.status(400).json({ error: { name: 'ValidationError' } });
+      res.status(200).json({ userId: '1234' });
     });
 
     scope.server = tnv.http.createServer(scope.app);
@@ -41,11 +28,15 @@ describe('record tests', function(tnv) {
 
 
   it('record error without url params', function(done) {
-    tnv.sinon.stub(tnv.fs, 'writeFile', function(fileName, body) {
+    tnv.sinon.stub(tnv.fs, 'writeFile', function(fileName, file) {
       tnv.fs.writeFile.restore();
 
-      body = JSON.parse(body);
-      console.log(body);
+      file = JSON.parse(file);
+      file.method.should.eql('POST');
+      file.status.should.eql(400);
+      file.request.body.key1.should.eql('value1');
+      file.response.body.error.name.should.eql('ValidationError');
+
       done();
     });
 
@@ -61,8 +52,15 @@ describe('record tests', function(tnv) {
 
 
   it('record error with url params', function(done) {
-    tnv.sinon.stub(tnv.fs, 'writeFile', function() {
+    tnv.sinon.stub(tnv.fs, 'writeFile', function(fileName, file) {
       tnv.fs.writeFile.restore();
+
+      file = JSON.parse(file);
+      file.method.should.eql('GET');
+      file.status.should.eql(200);
+      file.request.params.param.should.eql('123455');
+      file.response.body.userId.should.eql('1234');
+
       done();
     });
 
