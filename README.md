@@ -25,6 +25,6 @@ The NPM only works with express.
 
 
 ### Example
-![alt tag](images/1.png=250x)
-![alt tag](images/2.png=250x)
-![alt tag](images/3.png=250x)
+![alt tag](images/1.png =250x)
+![alt tag](images/2.png =250x)
+![alt tag](images/3.png =250x)
