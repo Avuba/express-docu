@@ -1,15 +1,13 @@
 ## Express API Documentation
 
 
-### Purpose
-
 This NPM module will record all your routes and produces a HTML api documentation.
 
 
 ### Requirements
 
 To use this module you need tests. The recorder will record all requests and responses of your tests.
-The NPM only works with express.
+The NPM only works with express 4.x.
 
 
 ### Usage
