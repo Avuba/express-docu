@@ -1,3 +1,6 @@
+### Express API Documentation
+
+
 ### Purpose
 
 This NPM module will record all your routes and produces a HTML api documentation.
@@ -22,6 +25,7 @@ The NPM only works with express.
 ### TODO:
 - cleanup recorded files
 - cleanup output
+- configureable folders
 
 
 ### Example
