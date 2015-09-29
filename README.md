@@ -12,18 +12,7 @@ To use this module you need tests. The recorder will record all requests and res
 
 ```
   var expressdocu = require('express-docu');
-  
-  app.use(function(req, res, next) {
-    res.once('finish', function() {
-      expressdocu.record({
-        req: req,
-        res: res,
-        headers: yourCustomHeaders
-      });
-    });
-
-    next();
-  });
+  app.use(expressDocu.record);
 ```
 
 
