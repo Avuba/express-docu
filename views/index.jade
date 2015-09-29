@@ -1,0 +1,62 @@
+
+
+html
+    head
+        title API Documentation
+        link(rel="stylesheet" href="stylesheets/bootstrap.min.css")
+        script(src="javascripts/jquery.min.js")
+        script(src="javascripts/bootstrap.min.js")
+        include style.jade
+
+
+    body
+        div(class='quickMenu')
+            a( data-toggle='collapse', href='#apiMenu' class='button btn btn-success') Show/Hide Menu
+            a(href='#main' class='button btn btn-success') UP
+        div(class='menu collapse' id='apiMenu')
+            include tableOfContents.jade
+        div(class='api')
+            h1(id='main') API DOCUMENTATION
+            include tableOfContents.jade
+            ul(class='list-unstyled')
+                each group, groupKey in groups
+                    hr(style="margin-top: 100px; margin-bottom: 100px")
+
+                    li
+                        h2(class='groupRoute')
+                            span #{groupKey}
+
+                        each groupStatusCodes, groupRoute in group
+                            div(id=groupRoute.replace(/[\s\/:]/g,''))
+                                h3
+                                    p(class='lead', style="margin-top: 50px; font-weight: 100") #{groupRoute}
+                                div(class='summary')
+                                    each summaryCategory, summaryCategoryKey in groupStatusCodes.summary
+                                        div(class='summaryCategory')
+                                            h3 [#{summaryCategoryKey}]
+                                            table(class='summary')
+                                                each summaryObj, summaryKey in summaryCategory
+                                                    tr
+                                                        th  #{summaryKey}:
+                                                    each summaryObjParam, summaryObjParamKey in summaryObj
+                                                        tr
+                                                            td  #{summaryObjParamKey}#{!summaryObjParam.required?' (optional)':''}
+                                                            td  !{JSON.stringify(summaryObjParam.type, undefined, 2)}
+
+                                each examples, statusCode in groupStatusCodes.examples
+                                    div(class='example')
+                                        h4(style="cursor: pointer", data-toggle='collapse', href='#'+groupRoute.replace(/[\s\/:]/g,'')+statusCode class=statusCode<400?'bg-success':'bg-danger')
+                                            p(class='lead', style="font-size: 16px") Examples for Status Code: #{statusCode} (click to expand)
+                                        div(id=groupRoute.replace(/[\s\/:]/g,'')+statusCode class='collapse')
+                                            each example in examples
+                                                table(class='table')
+                                                    tr
+                                                        th(style="border: none") Request
+                                                        th(style="border: none") Response
+                                                    tr
+                                                        td(style="border: none; width: 50%")
+                                                            pre(class='codeWrapper', style="font-size: 10px")
+                                                                code !{JSON.stringify(example.request, undefined, 2)}
+                                                        td(style="border: none; width: 50%")
+                                                            pre(class='codeWrapper', style="font-size: 10px")
+                                                                code !{JSON.stringify(example.response, undefined, 2)}

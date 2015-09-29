@@ -1,0 +1,6 @@
+each group, groupKey in groups
+    h2 #{groupKey}
+    ul(class="list-unstyled")
+        each groupStatusCodes, groupRoute in group
+            li(style="margin-left:20px")
+                a(href='#' + groupRoute.replace(/[\s\/:]/g,'')) #{groupRoute}
