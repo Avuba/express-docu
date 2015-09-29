@@ -5,6 +5,7 @@ exports.request = require('supertest');
 exports.sinon = require('sinon');
 exports.fs = require('fs');
 exports.bodyParser = require('body-parser');
+exports.jade = require('jade');
 
 
 var chai = require('chai');
