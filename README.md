@@ -13,7 +13,14 @@ To use this module you need tests. The recorder will record all requests and res
 ```
   var expressdocu = require('express-docu');
   app.use(expressDocu.record);
+  
+  // run your tests and execute
+  node node_modules/express-docu/generateDocs.js
 ```
+
+### TODO:
+- cleanup recorded files
+- cleanup output
 
 
 ### Example
