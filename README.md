@@ -25,3 +25,5 @@ To use this module you need tests. The recorder will record all requests and res
 
 ### Example
 ![alt tag](images/1.png)
+![alt tag](images/2.png)
+![alt tag](images/3.png)
