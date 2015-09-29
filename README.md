@@ -13,7 +13,7 @@ The NPM only works with express.
 
 ```
   var expressdocu = require('express-docu');
-  app.use(expressDocu.record);
+  app.use(expressdocu.record);
   
   // run your tests and execute
   node node_modules/express-docu/generateDocs.js
