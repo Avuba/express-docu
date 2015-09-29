@@ -1,6 +1,17 @@
 {
   "name": "express-docu",
   "version": "1.0.0",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "jade": "^1.11.0",
+    "lodash": "^3.10.1",
+    "mocha-tnv": "^1.0.16",
+    "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "chai": "^3.3.0",
+    "express": "^4.13.3",
+    "sinon": "^1.17.1",
+    "supertest": "^1.1.0"
+  }
 }

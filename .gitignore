@@ -1,2 +1,4 @@
 output
 recorded
+node_modules
+*~*
