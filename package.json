@@ -1,9 +1,13 @@
 {
   "name": "express-docu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "kirrg001",
   "description": "record all your routes and generate HTML api documentation",
-  "homepage": "http://github.com/Avuba/express-docu",
+  "homepage": "https://github.com/Avuba/express-docu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Avuba/express-docu"
+  },
   "dependencies": {
     "jade": "^1.11.0",
     "lodash": "^3.10.1",
@@ -17,5 +21,11 @@
     "express": "^4.13.3",
     "sinon": "^1.17.1",
     "supertest": "^1.1.0"
-  }
+  },
+  "licenses": [
+    {
+      "type": "The MIT License",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
 }
